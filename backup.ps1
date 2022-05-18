@@ -6,7 +6,18 @@
 #     vet=""
 #     sin=""
 #     eng=""
-# }
+# 
+
+
+
+SourceLetter="M"
+TargetLetter="T"
+
+SourcePath=""
+echo $env:COMPUTERNAME
+SOV() {
+
+}
 
 #Variables, only Change here
 $Destination = "T:\Backups\" #Copy the Files to this Location
