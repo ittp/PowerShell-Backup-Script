@@ -8,7 +8,21 @@
 #     eng=""
 # 
 
+function createConfig() {
+# SOV-NAS-M
+$cn=$env:COMPUTERNAME
+$isMatch=($cn -eq "TP-HW")
+$SovRunner=(env:COMPUTERNAME -eq "")
 
+$FSRunner=(env:COMPUTERNAME -eq "FS")
+$DC00Runner=(env:COMPUTERNAME -eq "KT-SRV-00")
+$DC01Runner=(env:COMPUTERNAME -eq "KT-SRV-01")
+$DCRunner=(env:COMPUTERNAME -eq "KT-NAS-02")
+
+$BackupServerRunner=(env:COMPUTERNAME -eq "BACKUP")
+
+
+}
 
 SourceLetter="M"
 TargetLetter="T"
@@ -354,4 +368,18 @@ if ($CountZip -gt $Versions) {
     
     $Zip.FullName | Remove-Item -Recurse -Force 
 
+}
+
+#####
+if($env:COMPUTERNAME -eq "SOV-NAS-M") {
+
+}
+
+if($env:COMPUTERNAME -eq "BACKUP") {
+    
+}
+
+
+if($env:COMPUTERNAME -eq "1CSERVER") {
+    
 }
