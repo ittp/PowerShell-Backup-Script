@@ -1,52 +1,30 @@
-########################################################
-# Name: BackupScript_v2.ps1                              
-# Creator: Michael Seidl aka Techguy                    
-# CreationDate: 05.08.2021                              
-# LastModified: 05.08.2021                               
-# Version: 2.1
-# Doc: http://www.techguy.at/tag/backupscript/
-# GitHub: https://github.com/Seidlm/PowerShell-Backup-Script
-# PSVersion tested: 5
-#
-# PowerShell Self Service Web Portal at www.au2mator.com/PowerShell
-#
-#
-# Description: Copies the Bakupdirs to the Destination
-# You can configure more than one Backupdirs, every Dir
-# wil be copied to the Destination.
-# Only Change Variables in Variables Section
-# Change LoggingLevel to 3 an get more output in Powershell Windows
-# 
-#
-########################################################
-#
-# www.techguy.at                                        
-# www.facebook.com/TechguyAT                            
-# www.twitter.com/TechguyAT                             
-# michael@techguy.at 
-#
-#
-########################################################
+# transport
 
+# $locations=@{
+#     isp=""
+#     sov=""
+#     vet=""
+#     sin=""
+#     eng=""
+# }
 
 #Variables, only Change here
-$Destination = "C:\temp\_Backup" #Copy the Files to this Location
+$Destination = "T:\Backups\" #Copy the Files to this Location
 
 $Versions = "3" #How many of the last Backups you want to keep
 $Backupdirs = "C:\Source1", "C:\Source2" #What Folders you want to backup
 $ExcludeDirs = ($env:SystemDrive + "\Users\.*\AppData\Local"), "C:\Program Files (x86)\Common Files\Adobe" #This list of Directories will not be copied
 
-$logPath = "C:\temp\_Backup"
+$logPath = "T:\Backups\_Log"
 $LogfileName = "Log" #Log Name
 $LoggingLevel = "3" #LoggingLevel only for Output in Powershell Window, 1=smart, 3=Heavy
 
-$Zip = $false #Zip the Backup Destination
+$Zip = $true #Zip the Backup Destination
 $Use7ZIP = $false #7ZIP Module will be installed https://www.powershellgallery.com/packages/7Zip4Powershell/2.0.0
 $UseStaging = $false #only if you use ZIP, than we copy file to Staging, zip it and copy the ZIP to destination, like Staging, and to save NetworkBandwith
-$StagingPath = "C:\temp\_Staging"
+$StagingPath = "T:\Backups\temp\_Staging"
 
 $RemoveBackupDestination = $true #Remove copied files after Zip, only if $Zip is true
-
 
 #region Functions
 
