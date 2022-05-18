@@ -7,25 +7,30 @@
 #     sin=""
 #     eng=""
 # 
-
-function createConfig() {
-# SOV-NAS-M
 $cn=$env:COMPUTERNAME
-$isMatch=($cn -eq "TP-HW")
-$SovRunner=(env:COMPUTERNAME -eq "")
 
-$FSRunner=(env:COMPUTERNAME -eq "FS")
-$DC00Runner=(env:COMPUTERNAME -eq "KT-SRV-00")
-$DC01Runner=(env:COMPUTERNAME -eq "KT-SRV-01")
-$DCRunner=(env:COMPUTERNAME -eq "KT-NAS-02")
+$ip=""
 
-$BackupServerRunner=(env:COMPUTERNAME -eq "BACKUP")
+$servers = @{
+    M="\\10.130.185.125'
+    SQL="\\1CSERVER'
+    FS="\\FS'
+    NAS="\\KT-NAS-02'
+    BACKUP='BACKUP'
+}
+
+
+ function createConfig() {
+# SOV-NAS-M
 
 
 }
+$W=C:\
 
 SourceLetter="M"
 TargetLetter="T"
+
+SovTargetLetter="E"
 
 SourcePath=""
 echo $env:COMPUTERNAME
@@ -34,20 +39,20 @@ SOV() {
 }
 
 #Variables, only Change here
-$Destination = "T:\Backups\" #Copy the Files to this Location
+$Destination = "E:\Backups\" #Copy the Files to this Location
 
-$Versions = "3" #How many of the last Backups you want to keep
-$Backupdirs = "C:\Source1", "C:\Source2" #What Folders you want to backup
+$Versions = "7" #How many of the last Backups you want to keep
+$Backupdirs = "M:\TP" #What Folders you want to backup
 $ExcludeDirs = ($env:SystemDrive + "\Users\.*\AppData\Local"), "C:\Program Files (x86)\Common Files\Adobe" #This list of Directories will not be copied
 
-$logPath = "T:\Backups\_Log"
+$logPath = "E:\Backups\_Log"
 $LogfileName = "Log" #Log Name
 $LoggingLevel = "3" #LoggingLevel only for Output in Powershell Window, 1=smart, 3=Heavy
 
 $Zip = $true #Zip the Backup Destination
 $Use7ZIP = $false #7ZIP Module will be installed https://www.powershellgallery.com/packages/7Zip4Powershell/2.0.0
 $UseStaging = $false #only if you use ZIP, than we copy file to Staging, zip it and copy the ZIP to destination, like Staging, and to save NetworkBandwith
-$StagingPath = "T:\Backups\temp\_Staging"
+$StagingPath = "E:\Backups\temp\_Staging"
 
 $RemoveBackupDestination = $true #Remove copied files after Zip, only if $Zip is true
 
