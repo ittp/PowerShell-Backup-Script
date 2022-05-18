@@ -1,30 +1,6 @@
-# transport
 
-# $locations=@{
-#     isp=""
-#     sov=""
-#     vet=""
-#     sin=""
-#     eng=""
-# 
-$cn=$env:COMPUTERNAME
+$computer=$env:COMPUTERNAME
 
-$ip=""
-
-$servers = @{
-    M="\\10.130.185.125'
-    SQL="\\1CSERVER'
-    FS="\\FS'
-    NAS="\\KT-NAS-02'
-    BACKUP='BACKUP'
-}
-
-
- function createConfig() {
-# SOV-NAS-M
-
-
-}
 $W=C:\
 
 SourceLetter="M"
@@ -33,10 +9,6 @@ TargetLetter="T"
 SovTargetLetter="E"
 
 SourcePath=""
-echo $env:COMPUTERNAME
-SOV() {
-
-}
 
 #Variables, only Change here
 $Destination = "E:\Backups\" #Copy the Files to this Location
@@ -104,6 +76,12 @@ $FinalBackupdirs = @()
 #SCRIPT
 ##PRE CHECK
 Write-au2matorLog -Type Info -Text "Start the Script"
+$run=Read-Host -P Run [...]?
+
+if($run) {
+    Write-Host "Run"
+}
+
 Write-au2matorLog -Type Info -Text "Create Backup Dirs and Check all Folders an Path if they exist"
 
 try {
