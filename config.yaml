@@ -1,0 +1,28 @@
+servers:
+  mail: 192.168.3.9
+  fs: 
+    ip: 192.168.3.111
+  shares: 
+    - G: FS
+  nas: 
+   ip: 192.168.3.112
+   shares: 
+   - H: H_Disk
+   - F: KT-Old_F
+   
+   
+  
+  
+  G: 112/G
+  S: 192.168.50.40
+  M: 10.130.185.125
+  
+
+title: 
+  E: Exchange
+  H: H
+  F: F
+  G: FS
+  S: SQL
+  M: SOV-M
+
